@@ -110,24 +110,22 @@ for (let i = 0; i < imgText.length; i++) {
 
 
 //aggiungo un event listener ai miei bottoni
+setInterval(function(){
 
+//img
+const slides = document.querySelectorAll(".slide > img");
+console.log(slides);
 
+const currentImg = slides[imgActive];
+console.log(currentImg);
 
-nextEl.addEventListener("click", function () {
-    //img
-    const slides = document.querySelectorAll(".slide > img");
-    console.log(slides);
+//text
+const paragrafi = document.querySelectorAll(".description > p");
+const currentPar = paragrafi[imgActive];
 
-    const currentImg = slides[imgActive];
-    console.log(currentImg);
-
-    //text
-    const paragrafi = document.querySelectorAll(".description > p");
-    const currentPar = paragrafi[imgActive];
-    
-    //title
-    const titles = document.querySelectorAll(".description > h2");
-    const currentTitle = titles[imgActive];
+//title
+const titles = document.querySelectorAll(".description > h2");
+const currentTitle = titles[imgActive];
 
     
     if (imgActive < 4) {
@@ -154,52 +152,95 @@ nextEl.addEventListener("click", function () {
     //title
     const nextTitle = titles[imgActive];
     nextTitle.classList.add("active");
+},3000)
+
+// nextEl.addEventListener("click", function () {
+//     //img
+//     const slides = document.querySelectorAll(".slide > img");
+//     console.log(slides);
+
+//     const currentImg = slides[imgActive];
+//     console.log(currentImg);
+
+//     //text
+//     const paragrafi = document.querySelectorAll(".description > p");
+//     const currentPar = paragrafi[imgActive];
+    
+//     //title
+//     const titles = document.querySelectorAll(".description > h2");
+//     const currentTitle = titles[imgActive];
+
+    
+//     if (imgActive < 4) {
+//         currentTitle.classList.remove("active")
+//         currentPar.classList.remove("active");
+//         currentImg.classList.remove("active");
+//         imgActive++
+        
+//     }else{
+//         currentTitle.classList.remove("active")
+//         currentPar.classList.remove("active");
+//         currentImg.classList.remove("active");
+//         imgActive = 0
+//     }
+
+//     //img
+//     const nextImg = slides[imgActive];
+//     nextImg.classList.add("active");
+    
+//     //text
+//     const nextPar = paragrafi[imgActive];
+//     nextPar.classList.add("active");
+
+//     //title
+//     const nextTitle = titles[imgActive];
+//     nextTitle.classList.add("active");
    
-})
+// })
 
-prevEl.addEventListener("click", function () {
+// prevEl.addEventListener("click", function () {
 
-    //img
-    const slides = document.querySelectorAll(".slide > img")
-    console.log(slides);
+//     //img
+//     const slides = document.querySelectorAll(".slide > img")
+//     console.log(slides);
  
-     const currentImg = slides[imgActive];
-     console.log(currentImg);
+//      const currentImg = slides[imgActive];
+//      console.log(currentImg);
 
-     //text
-    const paragrafi = document.querySelectorAll(".description > p");
-    const currentPar = paragrafi[imgActive];
+//      //text
+//     const paragrafi = document.querySelectorAll(".description > p");
+//     const currentPar = paragrafi[imgActive];
 
-    //title
-    const titles = document.querySelectorAll(".description > h2");
-    const currentTitle = titles[imgActive];
+//     //title
+//     const titles = document.querySelectorAll(".description > h2");
+//     const currentTitle = titles[imgActive];
     
      
-     if (imgActive > 0) {
-        currentTitle.classList.remove("active")
-        currentPar.classList.remove("active");
-        currentImg.classList.remove("active");
-        imgActive--
-     }else{
-        currentTitle.classList.remove("active")
-        currentPar.classList.remove("active");
-        currentImg.classList.remove("active");
-         imgActive = slides.length -1;
-        console.log(slides.length -1);
-     }
+//      if (imgActive > 0) {
+//         currentTitle.classList.remove("active")
+//         currentPar.classList.remove("active");
+//         currentImg.classList.remove("active");
+//         imgActive--
+//      }else{
+//         currentTitle.classList.remove("active")
+//         currentPar.classList.remove("active");
+//         currentImg.classList.remove("active");
+//          imgActive = slides.length -1;
+//         console.log(slides.length -1);
+//      }
  
-    //img
-     const nextImg = slides[imgActive];
-     nextImg.classList.add("active");
+//     //img
+//      const nextImg = slides[imgActive];
+//      nextImg.classList.add("active");
 
-    //text
-    const nextPar = paragrafi[imgActive];
-    nextPar.classList.add("active");
+//     //text
+//     const nextPar = paragrafi[imgActive];
+//     nextPar.classList.add("active");
 
-    //title
-    const nextTitle = titles[imgActive];
-    nextTitle.classList.add("active");
+//     //title
+//     const nextTitle = titles[imgActive];
+//     nextTitle.classList.add("active");
    
      
     
- })
+//  })
