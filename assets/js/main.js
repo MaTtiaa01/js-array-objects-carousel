@@ -53,10 +53,19 @@ const images = [
 const slideEl = document.querySelector(".slide");
 const prevEl = document.querySelector(".prev");
 const nextEl = document.querySelector(".next");
+const descriptionEl = document.querySelector(".description");
 
 //inserisco le immagini dinamicamente
 const imgUrl = images.map((element) => {
     return element.image
+})
+
+const imgTitle = images.map((element) => {
+    return element.title
+})
+
+const imgText = images.map((element) => {
+    return element.text
 })
 
 //console.log(imgUrl);
@@ -64,62 +73,133 @@ const imgUrl = images.map((element) => {
 let imgActive = 0;
 for (let i = 0; i < imgUrl.length; i++) {
     const element = imgUrl[i];
+    //console.log(element);
     const imgMarkup =  `<img class="${i === imgActive ? "active" : ""}" src="./assets/img/${element}" alt="">`;
     slideEl.insertAdjacentHTML("beforeend",imgMarkup) 
     
+    // let imgActive = 0;
+    // imgUrl.forEach((element,i=0) => {
+    //     element = imgUrl[i];
+    //     imgMarkup = `<img class="${i === imgActive ? "active" : ""}" src="./assets/img/${element}" alt="">`;
+    //     slideEl.insertAdjacentHTML("afterbegin",imgMarkup); 
+    // })
+    
+    
+    console.log(imgUrl);
 }
 
-// let imgActive = 0;
-// imgUrl.forEach((element,i=0) => {
-//     element = imgUrl[i];
-//     imgMarkup = `<img class="${i === imgActive ? "active" : ""}" src="./assets/img/${element}" alt="">`;
-//     slideEl.insertAdjacentHTML("afterbegin",imgMarkup); 
-// })
+//ciclo for per il titolo
+
+for (let i = 0; i < imgTitle.length; i++) {
+    const element = imgTitle[i];
+    console.log(element);
+    const titleMarkup = `<h2 class="text text-center my-3 ${i === imgActive ? "active" : ""}">${element}</h2>`;
+    descriptionEl.insertAdjacentHTML("beforeend",titleMarkup);
+}
+
+//ciclo per il testo
+
+for (let i = 0; i < imgText.length; i++) {
+    const element = imgText[i];
+    console.log(element);
+    const textMarkup = `<p class="text text-center my-3 ${i === imgActive ? "active" : ""}">${element}</p>`;
+    descriptionEl.insertAdjacentHTML("beforeend",textMarkup);
+}
 
 
-console.log(imgUrl);
+
+
 //aggiungo un event listener ai miei bottoni
 
 
 
 nextEl.addEventListener("click", function () {
-   const slides = document.querySelectorAll(".slide > img")
-   console.log(slides);
+    //img
+    const slides = document.querySelectorAll(".slide > img");
+    console.log(slides);
 
     const currentImg = slides[imgActive];
     console.log(currentImg);
-    currentImg.classList.remove("active");
+
+    //text
+    const paragrafi = document.querySelectorAll(".description > p");
+    const currentPar = paragrafi[imgActive];
+    
+    //title
+    const titles = document.querySelectorAll(".description > h2");
+    const currentTitle = titles[imgActive];
+
+    
     if (imgActive < 4) {
+        currentTitle.classList.remove("active")
+        currentPar.classList.remove("active");
         currentImg.classList.remove("active");
         imgActive++
         
     }else{
+        currentTitle.classList.remove("active")
+        currentPar.classList.remove("active");
+        currentImg.classList.remove("active");
         imgActive = 0
     }
 
+    //img
     const nextImg = slides[imgActive];
     nextImg.classList.add("active");
     
+    //text
+    const nextPar = paragrafi[imgActive];
+    nextPar.classList.add("active");
+
+    //title
+    const nextTitle = titles[imgActive];
+    nextTitle.classList.add("active");
    
 })
 
 prevEl.addEventListener("click", function () {
+
+    //img
     const slides = document.querySelectorAll(".slide > img")
     console.log(slides);
  
      const currentImg = slides[imgActive];
      console.log(currentImg);
-     currentImg.classList.remove("active");
+
+     //text
+    const paragrafi = document.querySelectorAll(".description > p");
+    const currentPar = paragrafi[imgActive];
+
+    //title
+    const titles = document.querySelectorAll(".description > h2");
+    const currentTitle = titles[imgActive];
+    
+     
      if (imgActive > 0) {
+        currentTitle.classList.remove("active")
+        currentPar.classList.remove("active");
         currentImg.classList.remove("active");
         imgActive--
      }else{
+        currentTitle.classList.remove("active")
+        currentPar.classList.remove("active");
+        currentImg.classList.remove("active");
          imgActive = slides.length -1;
         console.log(slides.length -1);
      }
  
+    //img
      const nextImg = slides[imgActive];
      nextImg.classList.add("active");
+
+    //text
+    const nextPar = paragrafi[imgActive];
+    nextPar.classList.add("active");
+
+    //title
+    const nextTitle = titles[imgActive];
+    nextTitle.classList.add("active");
+   
      
     
  })
