@@ -96,3 +96,18 @@ nextEl.addEventListener("click", function () {
     
    
 })
+
+prevEl.addEventListener("click", function () {
+    const slides = document.querySelectorAll(".slide > img")
+    console.log(slides);
+ 
+     const currentImg = slides[imgActive];
+     console.log(currentImg);
+     currentImg.classList.remove("active");
+     imgActive--
+ 
+     const nextImg = slides[imgActive];
+     nextImg.classList.add("active");
+     
+    
+ })

@@ -5,16 +5,21 @@
 }
 
 img{
-    max-width: 100%;
-    object-fit: cover;
+    width: 100%;
     display: none;
+    background-size:cover;
+    height: 100%;
+    object-fit:cover;
+    background-position:center;
+    
 }
 
-.box{
+.slide{
     width: 400px;
     aspect-ratio: 1/1;
     margin: auto;
     position: relative;
+    
 }
 
 .box .next{
