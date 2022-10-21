@@ -12,7 +12,7 @@ Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per p
 Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
     -mi creo una classe active da mettere e togliere con .toggle alle varie immagini
     -mi seleziono il testo e il titolo con map per poi inserirlo con ${}
-    -
+    
 
 
 Milestone 2:
@@ -89,7 +89,13 @@ nextEl.addEventListener("click", function () {
     const currentImg = slides[imgActive];
     console.log(currentImg);
     currentImg.classList.remove("active");
-    imgActive++
+    if (imgActive < 4) {
+        currentImg.classList.remove("active");
+        imgActive++
+        
+    }else{
+        imgActive = 0
+    }
 
     const nextImg = slides[imgActive];
     nextImg.classList.add("active");
@@ -104,7 +110,13 @@ prevEl.addEventListener("click", function () {
      const currentImg = slides[imgActive];
      console.log(currentImg);
      currentImg.classList.remove("active");
-     imgActive--
+     if (imgActive > 0) {
+        currentImg.classList.remove("active");
+        imgActive--
+     }else{
+         imgActive = slides.length -1;
+        console.log(slides.length -1);
+     }
  
      const nextImg = slides[imgActive];
      nextImg.classList.add("active");
