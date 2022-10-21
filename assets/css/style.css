@@ -4,6 +4,33 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: red;
+img{
+    max-width: 100%;
+    object-fit: cover;
 }
+
+.box{
+    width: 400px;
+    aspect-ratio: 1/1;
+    margin: auto;
+    position: relative;
+}
+
+.box .next{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.box .prev{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+
+
