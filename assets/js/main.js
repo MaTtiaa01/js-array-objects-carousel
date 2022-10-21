@@ -65,7 +65,7 @@ let imgActive = 0;
 for (let i = 0; i < imgUrl.length; i++) {
     const element = imgUrl[i];
     const imgMarkup =  `<img class="${i === imgActive ? "active" : ""}" src="./assets/img/${element}" alt="">`;
-    slideEl.insertAdjacentHTML("afterbegin",imgMarkup) 
+    slideEl.insertAdjacentHTML("beforeend",imgMarkup) 
     
 }
 
